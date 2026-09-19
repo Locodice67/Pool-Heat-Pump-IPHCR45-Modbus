@@ -2,6 +2,9 @@
 
 **🌍 Language : [🇫🇷 Français](#français) · [🇬🇧 English](#english) · [🇩🇪 Deutsch](#deutsch) · [🇳🇱 Nederlands](#nederlands)**
 
+![Téléchargements](https://img.shields.io/github/downloads/Locodice67/Pool-Heat-Pump-IPHCR45-Modbus/total?style=for-the-badge&label=T%C3%A9l%C3%A9chargements)
+![Dernière version](https://img.shields.io/github/v/release/Locodice67/Pool-Heat-Pump-IPHCR45-Modbus?style=for-the-badge&label=version)
+
 ![IPHCR45](custom_components/pool_heat_pump_iphcr45_modbus/brand/logo.png)
 
 ---
