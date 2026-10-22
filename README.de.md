@@ -179,6 +179,10 @@ Werte vom Typenschild des Entwicklungsgeräts.
 | Schutzart | IPX4 | — |
 | Gewicht | 45 kg | — |
 
+### Danksagung
+
+Diese Integration basiert auf den Registern, Verkabelungshinweisen und der Vorarbeit von [spdr870/fairland_iphcr45_modbus](https://github.com/spdr870/fairland_iphcr45_modbus) von [@spdr870](https://github.com/spdr870). Vielen Dank für das Teilen der ursprünglichen Reverse-Engineering-Arbeit — sie hat diese Home-Assistant-Integration ermöglicht.
+
 ### Nützliche Links
 
 - [Home Assistant Modbus-Dokumentation](https://www.home-assistant.io/integrations/modbus/)

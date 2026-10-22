@@ -179,6 +179,10 @@ Valeurs relevées sur la plaque signalétique de l'unité de développement.
 | Indice de protection | IPX4 | — |
 | Poids | 45 kg | — |
 
+### Remerciements
+
+Cette intégration s'appuie sur les registres, les notes de câblage et le travail initial de [spdr870/fairland_iphcr45_modbus](https://github.com/spdr870/fairland_iphcr45_modbus) par [@spdr870](https://github.com/spdr870). Merci d'avoir partagé ce travail de rétro-ingénierie — il a rendu cette intégration Home Assistant possible.
+
 ### Liens utiles
 
 - [Documentation Modbus de Home Assistant](https://www.home-assistant.io/integrations/modbus/)

@@ -179,6 +179,10 @@ Values read from the nameplate of the development unit.
 | Protection level | IPX4 | — |
 | Weight | 45 kg | — |
 
+### Credits
+
+This integration is based on the registers, wiring notes and groundwork from [spdr870/fairland_iphcr45_modbus](https://github.com/spdr870/fairland_iphcr45_modbus) by [@spdr870](https://github.com/spdr870). Many thanks for sharing the original reverse-engineering work — it made this Home Assistant integration possible.
+
 ### Useful links
 
 - [Home Assistant Modbus documentation](https://www.home-assistant.io/integrations/modbus/)

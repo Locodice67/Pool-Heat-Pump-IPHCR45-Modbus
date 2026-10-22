@@ -179,6 +179,10 @@ Waarden van het typeplaatje van het ontwikkelingstoestel.
 | Beschermingsgraad | IPX4 | — |
 | Gewicht | 45 kg | — |
 
+### Dankbetuiging
+
+Deze integratie is gebaseerd op de registers, bekabelingsnotities en het voorwerk van [spdr870/fairland_iphcr45_modbus](https://github.com/spdr870/fairland_iphcr45_modbus) door [@spdr870](https://github.com/spdr870). Hartelijk dank voor het delen van het oorspronkelijke reverse-engineeringwerk — het maakte deze Home Assistant-integratie mogelijk.
+
 ### Nuttige links
 
 - [Home Assistant Modbus-documentatie](https://www.home-assistant.io/integrations/modbus/)
