@@ -23,7 +23,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
 
 class ModbusStatusSensor(PacDeviceMixin, BinarySensorEntity):
-    """État local de la liaison Modbus (diagnostic), pas une I/O de l'appareil."""
+    """Local state of the Modbus link (diagnostic), not a device I/O."""
 
     def __init__(self, entry_id, controller):
         self._entry_id = entry_id
@@ -48,7 +48,7 @@ class ModbusStatusSensor(PacDeviceMixin, BinarySensorEntity):
 
 
 class PacRegisterBinarySensor(PacDeviceMixin, BinarySensorEntity):
-    """Binary sensor dérivé d'une bobine ou d'une entrée TOR Modbus."""
+    """Binary sensor derived from a Modbus coil or digital input."""
 
     _attr_should_poll = False
 

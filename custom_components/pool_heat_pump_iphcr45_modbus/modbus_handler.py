@@ -12,21 +12,21 @@ HOLDING = "holding"
 
 
 class ModbusHandler:
-    """Connexion Modbus TCP asynchrone vers la passerelle de la PAC.
+    """Asynchronous Modbus TCP connection to the heat pump gateway.
 
-    `modbus_connection` (backend tmodbus) gère la liaison de bout en bout :
-    chaque lecture/écriture ouvre la connexion à la demande, la réouvre après
-    une coupure et lève une sous-classe de `ModbusError` en cas d'échec. Les
-    méthodes sont donc natives asyncio et s'appellent directement depuis la
-    boucle d'événements de Home Assistant, sans passer par un thread. La même
-    instance est partagée par toutes les plateformes de l'intégration.
+    `modbus_connection` (tmodbus backend) handles the link end to end:
+    each read/write opens the connection on demand, reopens it after a
+    drop and raises a `ModbusError` subclass on failure. The methods are
+    therefore native asyncio and are called directly from the Home
+    Assistant event loop, without going through a thread. The same
+    instance is shared by all platforms of the integration.
     """
 
     def __init__(self, host="192.168.1.100", port=502, unit_id=1, timeout=3):
         self.host = host
         self.port = port
         self.unit_id = unit_id
-        # Aucune I/O dans le constructeur : la liaison s'ouvre au premier usage.
+        # No I/O in the constructor: the link opens on first use.
         self._connection = ModbusConnection(
             ModbusTcpParams(host=host, port=port), timeout=timeout
         )
@@ -34,13 +34,13 @@ class ModbusHandler:
         self._unit.require_timeout(timeout)
 
     async def connect(self) -> bool:
-        """Ouvre la connexion. Peut être appelé plusieurs fois."""
+        """Open the connection. May be called several times."""
         try:
             await self._connection.connect()
             return True
         except ModbusError as err:
             _LOGGER.debug(
-                "Connexion Modbus impossible (%s:%s) : %s", self.host, self.port, err
+                "Modbus connection failed (%s:%s): %s", self.host, self.port, err
             )
             return False
 
@@ -48,16 +48,16 @@ class ModbusHandler:
         await self._connection.close()
 
     async def reconnect(self) -> None:
-        """Recycle la liaison : la prochaine requête se reconnectera d'elle-même."""
+        """Recycle the link: the next request reconnects on its own."""
         try:
             await self._connection.disconnect()
         except ModbusError as err:
-            # Déconnexion impossible : sans gravité, la prochaine requête
-            # rouvrira la liaison à la demande.
-            _LOGGER.debug("Reconnexion Modbus impossible : %s", err)
+            # Disconnect failed: harmless, the next request
+            # reopens the link on demand.
+            _LOGGER.debug("Modbus reconnect failed: %s", err)
 
     async def read(self, address, input_type=HOLDING, count=1):
-        """Lit `count` valeurs et renvoie la première, ou None en cas d'échec."""
+        """Read `count` values and return the first, or None on failure."""
         try:
             if input_type == COIL:
                 values = await self._unit.read_coils(address, count)
@@ -73,7 +73,7 @@ class ModbusHandler:
             return values[0]
         except ModbusError as err:
             _LOGGER.debug(
-                "Erreur de lecture Modbus à %s (%s) : %s", address, input_type, err
+                "Modbus read error at %s (%s): %s", address, input_type, err
             )
             return None
 
@@ -86,17 +86,17 @@ class ModbusHandler:
             return True
         except ModbusError as err:
             _LOGGER.debug(
-                "Erreur d'écriture Modbus à %s (%s) : %s", address, input_type, err
+                "Modbus write error at %s (%s): %s", address, input_type, err
             )
             return False
 
     async def read_verified(
         self, address, expected_value, input_type=HOLDING, tolerance=0
     ):
-        """Relit une valeur après une écriture pour confirmer qu'elle est appliquée.
+        """Re-read a value after a write to confirm it was applied.
 
-        À appeler après write(), avec un court délai si l'appareil a besoin de
-        temps pour traiter.
+        Call after write(), with a short delay if the device needs
+        time to process.
         """
         result = await self.read(address, input_type=input_type)
         if result is None:

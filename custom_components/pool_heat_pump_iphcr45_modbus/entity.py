@@ -4,10 +4,10 @@ from .models import DEVICE_NAME
 
 
 class PacDeviceMixin:
-    """device_info commun à toutes les entités de la PAC (un seul appareil).
+    """device_info shared by all heat pump entities (single device).
 
-    Le fabricant et le modèle proviennent du modèle sélectionné à la
-    configuration (voir models.BRANDS).
+    The manufacturer and model come from the model selected at
+    configuration time (see models.BRANDS).
     """
 
     _entry_id: str
@@ -15,7 +15,7 @@ class PacDeviceMixin:
 
     @property
     def available(self) -> bool:
-        """Indisponible pendant l'hivernage (aucune I/O Modbus)."""
+        """Unavailable during wintering (no Modbus I/O)."""
         return not self._controller.hivernage
 
     @property

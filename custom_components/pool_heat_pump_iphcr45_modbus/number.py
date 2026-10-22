@@ -79,8 +79,8 @@ class PacSetpointNumber(PacDeviceMixin, NumberEntity):
             return False
 
         value = self._raw_to_value(raw)
-        # Valeur hors plage (appareil éteint ou lecture aberrante) : on ignore et
-        # on garde la dernière valeur connue plutôt que d'afficher n'importe quoi.
+        # Value out of range (device off or aberrant reading): ignore it and
+        # keep the last known value rather than display nonsense.
         if not (self._config["min"] <= value <= self._config["max"]):
             return False
 
@@ -94,7 +94,7 @@ class PacSetpointNumber(PacDeviceMixin, NumberEntity):
             self._config["address"], raw, self._config["input_type"]
         )
         if not ok:
-            _LOGGER.warning("Échec d'écriture de la consigne de température (%s)", value)
+            _LOGGER.warning("Failed to write the temperature setpoint (%s)", value)
             return
 
         await asyncio.sleep(0.5)
@@ -106,7 +106,7 @@ class PacSetpointNumber(PacDeviceMixin, NumberEntity):
         )
         if not verified:
             _LOGGER.warning(
-                "Consigne de température non confirmée par l'appareil (%s)", value
+                "Temperature setpoint not confirmed by the device (%s)", value
             )
             return
 

@@ -18,17 +18,17 @@ from .models import DEFAULT_BRAND, DEFAULT_MODEL
 
 
 class PoolHeatPumpIphcr45ModbusConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Configuration en une seule étape : Connexion Modbus."""
+    """Single-step configuration: Modbus connection."""
 
     VERSION = 1
 
     def __init__(self):
-        # Marque et modèle ne sont plus demandés : on enregistre le défaut,
-        # ce qui laisse intact le reste du code (résolution du jeu de registres).
+        # Brand and model are no longer requested: the default is stored,
+        # which leaves the rest of the code untouched (register set resolution).
         self._brand = DEFAULT_BRAND
         self._model = DEFAULT_MODEL
 
-    # --- Étape unique : paramètres de connexion --------------------------
+    # --- Single step: connection parameters -------------------------------
     async def async_step_user(self, user_input=None):
         return await self.async_step_connection(user_input)
 

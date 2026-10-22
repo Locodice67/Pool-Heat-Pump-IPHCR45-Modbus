@@ -18,8 +18,8 @@ async def async_setup_entry(hass, entry):
 
     data = dict(entry.data)
 
-    # Modèle choisi à la configuration (repli sur le défaut pour les entrées
-    # créées avant l'ajout de la sélection marque/modèle).
+    # Model chosen at configuration time (falls back to the default for entries
+    # created before brand/model selection was added).
     model_config = resolve_model(
         data.get(CONF_BRAND, DEFAULT_BRAND),
         data.get(CONF_MODEL, DEFAULT_MODEL),
@@ -47,8 +47,8 @@ async def async_setup_entry(hass, entry):
     controller.start()
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
-    # Premier poll en tâche de fond : jamais pendant le setup, jamais bloquant si
-    # la PAC est hors tension (même correctif que l'intégration pool_technologie).
+    # First poll in a background task: never during setup, never blocking if
+    # the heat pump is powered off (same fix as the pool_technologie integration).
     entry.async_create_background_task(
         hass, controller.async_initial_poll(), f"{DOMAIN}_initial_poll"
     )
@@ -58,11 +58,11 @@ async def async_setup_entry(hass, entry):
 
 
 async def _async_update_listener(hass, entry):
-    """Applique un changement d'options.
+    """Apply an options change.
 
-    L'intervalle de rafraîchissement impose un rechargement ; l'hivernage est
-    appliqué en place, car recharger l'entrée retirerait toutes les entités et
-    rendrait le switch d'hivernage momentanément intouchable.
+    A refresh interval change requires a reload; wintering is applied in
+    place, because reloading the entry would remove all entities and make
+    the wintering switch temporarily unreachable.
     """
     controller = hass.data.get(DOMAIN, {}).get(entry.entry_id, {}).get("controller")
     if controller is None:
@@ -77,7 +77,7 @@ async def _async_update_listener(hass, entry):
 
     new_hivernage = bool(entry.options.get(CONF_HIVERNER, False))
     if new_hivernage != controller.hivernage:
-        # Hivernage modifié depuis l'UI des options : appliqué sans recharger.
+        # Wintering changed from the options UI: applied without reloading.
         controller.set_hivernage(new_hivernage)
         controller.refresh_states()
 

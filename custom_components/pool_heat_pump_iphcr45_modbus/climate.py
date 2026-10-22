@@ -13,7 +13,7 @@ from .entity import PacDeviceMixin
 
 _LOGGER = logging.getLogger(__name__)
 
-# Option (clé du modèle) -> HVACMode de Home Assistant
+# Option (model key) -> Home Assistant HVACMode
 _HVAC_OPTION_TO_MODE = {
     "auto": HVACMode.AUTO,
     "heat": HVACMode.HEAT,
@@ -40,7 +40,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
 
 class PacThermostat(PacDeviceMixin, ClimateEntity):
-    """Thermostat de la PAC : consigne, mode de chauffage et mode de ventilation."""
+    """Heat pump thermostat: setpoint, heating mode and fan mode."""
 
     _attr_should_poll = False
     _attr_temperature_unit = UnitOfTemperature.CELSIUS
@@ -112,7 +112,7 @@ class PacThermostat(PacDeviceMixin, ClimateEntity):
     async def _write(self, spec, raw) -> bool:
         ok = await self._handler.write(spec["address"], raw, spec["input_type"])
         if not ok:
-            _LOGGER.warning("Échec d'écriture Modbus à %s", spec["address"])
+            _LOGGER.warning("Modbus write failed at %s", spec["address"])
             return False
 
         await asyncio.sleep(0.5)
@@ -124,7 +124,7 @@ class PacThermostat(PacDeviceMixin, ClimateEntity):
         )
         if not verified:
             _LOGGER.warning(
-                "Écriture non confirmée par l'appareil (registre %s)", spec["address"]
+                "Write not confirmed by the device (register %s)", spec["address"]
             )
             return False
         return True

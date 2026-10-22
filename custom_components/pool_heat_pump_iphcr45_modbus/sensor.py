@@ -12,7 +12,7 @@ _LOGGER = logging.getLogger(__name__)
 async def async_setup_entry(hass, config_entry, async_add_entities):
     entry_data = hass.data[DOMAIN][config_entry.entry_id]
     controller = entry_data["controller"]
-    handler = controller.handler  # même connexion que les autres plateformes
+    handler = controller.handler  # same connection as the other platforms
 
     sensors = [
         PacSensor(sensor_conf, handler, controller, config_entry.entry_id)
@@ -25,20 +25,20 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
             return
         any_success = False
         for sensor in sensors:
-            # Lecture asynchrone : l'attente rend la main à la boucle HA
-            # pendant le timeout Modbus éventuel.
+            # Asynchronous read: awaiting yields back to the HA loop
+            # during a possible Modbus timeout.
             ok = await sensor.update()
             if ok:
                 any_success = True
             sensor.async_write_ha_state()
-        # Rafraîchit les entités des autres plateformes (switch, number, select,
-        # climate, binary_sensor) sur le même cycle de poll.
+        # Refresh entities from the other platforms (switch, number, select,
+        # climate, binary_sensor) on the same poll cycle.
         for poll_listener in list(controller._poll_listeners):
             if await poll_listener():
                 any_success = True
-        # Un seul appel par cycle : une lecture isolée en échec ne doit pas, à
-        # elle seule, faire avancer le compteur de déconnexion si d'autres
-        # lectures du même cycle ont réussi.
+        # A single call per cycle: an isolated failed read must not, on its
+        # own, advance the disconnect counter if other reads in the same
+        # cycle succeeded.
         if any_success:
             controller.notify_modbus_success()
         else:
@@ -48,8 +48,8 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
 
 class PacSensor(PacDeviceMixin, SensorEntity, RestoreEntity):
-    # Le rafraîchissement est piloté par le controller, pas par HA : pas besoin
-    # que HA nous appelle aussi.
+    # Refresh is driven by the controller, not by HA: HA does not need to
+    # call us too.
     _attr_should_poll = False
 
     def __init__(self, config, handler, controller, entry_id):
@@ -89,10 +89,10 @@ class PacSensor(PacDeviceMixin, SensorEntity, RestoreEntity):
                 pass
 
     async def update(self) -> bool:
-        """Lit la valeur du capteur, directement dans la boucle asyncio.
+        """Read the sensor value, directly in the asyncio loop.
 
-        Retourne True/False ; c'est update_sensors() qui décide, une fois par
-        cycle, d'appeler controller.notify_modbus_success/failure.
+        Returns True/False; update_sensors() decides, once per
+        cycle, whether to call controller.notify_modbus_success/failure.
         """
         raw = await self._handler.read(
             self._config["address"], self._config["input_type"]
@@ -111,7 +111,7 @@ class PacSensor(PacDeviceMixin, SensorEntity, RestoreEntity):
             max_valid is not None and value > max_valid
         ):
             _LOGGER.debug(
-                "Lecture hors plage ignorée pour %s : %s",
+                "Out-of-range reading ignored for %s: %s",
                 self._config["unique_id"],
                 value,
             )

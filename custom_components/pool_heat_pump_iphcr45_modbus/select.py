@@ -23,7 +23,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
 
 class PacRegisterSelect(PacDeviceMixin, SelectEntity):
-    """Sélecteur adossé à un registre : options -> valeur brute."""
+    """Select backed by a register: options -> raw value."""
 
     _attr_should_poll = False
 
@@ -79,7 +79,7 @@ class PacRegisterSelect(PacDeviceMixin, SelectEntity):
         )
         if not ok:
             _LOGGER.warning(
-                "Échec d'écriture de %s (%s)", self._config["unique_id"], option
+                "Failed to write %s (%s)", self._config["unique_id"], option
             )
             return
 
@@ -91,7 +91,7 @@ class PacRegisterSelect(PacDeviceMixin, SelectEntity):
             0,
         )
         if not verified:
-            _LOGGER.warning("Sélection non confirmée par l'appareil (%s)", option)
+            _LOGGER.warning("Selection not confirmed by the device (%s)", option)
             return
 
         self._attr_current_option = option

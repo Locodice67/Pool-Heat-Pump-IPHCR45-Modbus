@@ -78,7 +78,7 @@ class PacSwitch(PacDeviceMixin, SwitchEntity):
             self._config["input_type"],
         )
         if not ok:
-            _LOGGER.warning("Échec d'écriture de la marche/arrêt de la PAC (%s)", value)
+            _LOGGER.warning("Failed to write the heat pump on/off state (%s)", value)
             return
 
         await asyncio.sleep(0.5)
@@ -89,7 +89,7 @@ class PacSwitch(PacDeviceMixin, SwitchEntity):
             0,
         )
         if not verified:
-            _LOGGER.warning("Commande de la PAC non confirmée par l'appareil (%s)", value)
+            _LOGGER.warning("Heat pump command not confirmed by the device (%s)", value)
             return
 
         self._attr_is_on = expected_on
@@ -97,11 +97,11 @@ class PacSwitch(PacDeviceMixin, SwitchEntity):
 
 
 class PacHivernageSwitch(PacDeviceMixin, SwitchEntity):
-    """Met la PAC en hivernage : plus aucune I/O Modbus, entités indisponibles.
+    """Set the heat pump to wintering: no more Modbus I/O, entities unavailable.
 
-    L'état est stocké dans les options de l'entrée de configuration ; le
-    changement recharge l'intégration, donc les entités sont recréées et
-    passent `unavailable` (hivernage) ou remontent leurs valeurs (réveil).
+    The state is stored in the config entry options; the change reloads the
+    integration, so entities are recreated and become `unavailable`
+    (wintering) or report their values again (wake-up).
     """
 
     _attr_should_poll = False
@@ -123,7 +123,7 @@ class PacHivernageSwitch(PacDeviceMixin, SwitchEntity):
 
     @property
     def available(self) -> bool:
-        """Toujours disponible : c'est le seul moyen de sortir de l'hivernage."""
+        """Always available: it is the only way out of wintering."""
         return True
 
     async def async_turn_on(self, **kwargs) -> None:
@@ -133,19 +133,19 @@ class PacHivernageSwitch(PacDeviceMixin, SwitchEntity):
         self._set(False)
 
     def _set(self, enabled: bool) -> None:
-        # Effet immédiat (plus d'I/O), puis persistance du choix : l'update
-        # listener ne recharge que si l'intervalle de rafraîchissement change.
+        # Immediate effect (no more I/O), then persist the choice: the update
+        # listener only reloads if the refresh interval changes.
         self._controller.set_hivernage(enabled)
         self._hass.config_entries.async_update_entry(
             self._entry,
             options={**self._entry.options, CONF_HIVERNER: enabled},
         )
         self.async_write_ha_state()
-        # Réécrit l'état des entités (available) sans les recréer, sans les
-        # sonder et sans aucune I/O Modbus.
+        # Rewrite entity state (available) without recreating them, without
+        # probing them and without any Modbus I/O.
         self._controller.refresh_states()
         if not enabled:
-            # Réveil immédiat : reconnexion sans attendre le prochain cycle.
+            # Immediate wake-up: reconnect without waiting for the next cycle.
             self._entry.async_create_background_task(
                 self._hass,
                 self._controller.async_initial_poll(),

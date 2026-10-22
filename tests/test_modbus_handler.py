@@ -1,4 +1,4 @@
-"""Vérifie ModbusHandler hors ligne : `python tests/test_modbus_handler.py`."""
+"""Check ModbusHandler offline: `python tests/test_modbus_handler.py`."""
 
 import asyncio
 import sys
@@ -6,11 +6,11 @@ from pathlib import Path
 
 _ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(_ROOT))
-try:  # HA installé : import normal du paquet.
+try:  # HA installed: normal package import.
     from custom_components.pool_heat_pump_iphcr45_modbus.modbus_handler import (
         COIL, DISCRETE_INPUT, HOLDING, INPUT, ModbusHandler,
     )
-except ModuleNotFoundError:  # HA absent : charge uniquement le module testé.
+except ModuleNotFoundError:  # HA missing: load only the tested module.
     import importlib.util
 
     _path = _ROOT / "custom_components/pool_heat_pump_iphcr45_modbus/modbus_handler.py"
@@ -25,7 +25,7 @@ from modbus_connection import ModbusError
 
 
 class FakeUnit:
-    """Doublure async : valeurs fixes, aucune I/O."""
+    """Async double: fixed values, no I/O."""
 
     def __init__(self, values=(42,), fail=False):
         self.values, self.fail, self.calls = list(values), fail, []

@@ -1,18 +1,18 @@
-# Carte des registres de la PAC Geco (IPHCR45 et contrôleurs proches des séries
-# Geco/AES/Madimack). Les adresses proviennent d'un projet communautaire de
-# rétro-ingénierie ; à re-vérifier sur l'unité avant mise en production.
+# Register map for the Geco heat pump (IPHCR45 and close controllers in the
+# Geco/AES/Madimack series). Addresses come from a community reverse
+# engineering project; re-verify on the unit before production use.
 #
-# Types de registres :
-#   input           -> registre d'entrée   (FC04)
-#   holding         -> registre de maintien (FC03 lecture / FC06 écriture)
-#   coil            -> bobine               (FC01 lecture / FC05 écriture)
-#   discrete_input  -> entrée TOR           (FC02 lecture seule)
+# Register types:
+#   input           -> input register   (FC04)
+#   holding         -> holding register (FC03 read / FC06 write)
+#   coil            -> coil             (FC01 read / FC05 write)
+#   discrete_input  -> digital input    (FC02 read only)
 
 DEVICE_NAME = "PAC Piscine"
 MANUFACTURER = "Geco"
 MODEL = "GEPAC08 (Modbus)"
 
-# Capteurs analogiques (registres d'entrée). value = raw * scale + offset
+# Analog sensors (input registers). value = raw * scale + offset
 SENSORS = [
     {
         "translation_key": "temperature_eau",
@@ -90,7 +90,7 @@ SENSORS = [
     },
 ]
 
-# Entrées TOR : status (bobine 0) + défauts (entrées TOR).
+# Digital inputs: status (coil 0) + faults (digital inputs).
 BINARY_SENSORS = [
     {
         "translation_key": "status",
@@ -117,7 +117,7 @@ BINARY_SENSORS = [
     },
 ]
 
-# Marche/arrêt de la PAC (bobine 0).
+# Heat pump on/off (coil 0).
 SWITCH = {
     "translation_key": "marche_arret",
     "unique_id": "marche_arret",
@@ -127,8 +127,8 @@ SWITCH = {
     "off_value": 0,
 }
 
-# Consigne de température (registre de maintien 3). Même registre que la consigne
-# du thermostat : les deux entités relisent la valeur au même cycle de poll.
+# Temperature setpoint (holding register 3). Same register as the thermostat
+# setpoint: both entities re-read the value on the same poll cycle.
 NUMBER = {
     "translation_key": "consigne_temperature",
     "unique_id": "consigne_temperature",
@@ -145,7 +145,7 @@ NUMBER = {
     "device_class": "temperature",
 }
 
-# Sélecteurs : options -> valeur brute du registre.
+# Selects: options -> raw register value.
 SELECTS = [
     {
         "translation_key": "mode",
@@ -165,8 +165,8 @@ SELECTS = [
     },
 ]
 
-# Thermostat : température courante (entrée 3), consigne (maintien 3), mode de
-# chauffage (maintien 0) et mode de ventilation (maintien 1).
+# Thermostat: current temperature (input 3), setpoint (holding 3), heating
+# mode (holding 0) and fan mode (holding 1).
 CLIMATE = {
     "translation_key": "thermostat",
     "unique_id": "thermostat",
@@ -200,10 +200,10 @@ CLIMATE = {
 }
 
 # ==========================================================================
-# Marques et modèles supportés
+# Supported brands and models
 # --------------------------------------------------------------------------
-# Chaque modèle fournit son propre jeu d'entités (registres). Ajouter un
-# modèle = ajouter une entrée dans `models` ci-dessous (+ ses traductions).
+# Each model provides its own entity set (registers). Adding a
+# model = adding one entry in `models` below (+ its translations).
 # ==========================================================================
 
 GEPAC08 = {
@@ -232,7 +232,7 @@ DEFAULT_MODEL = "gepac08"
 
 
 def resolve_model(brand: str, model: str) -> dict:
-    """Retourne la config du modèle demandé, avec repli sur le défaut."""
+    """Return the requested model config, falling back to the default."""
     brand_data = BRANDS.get(brand) or BRANDS[DEFAULT_BRAND]
     models = brand_data["models"]
     return models.get(model) or models[DEFAULT_MODEL]
