@@ -15,8 +15,8 @@ class PacDeviceMixin:
 
     @property
     def available(self) -> bool:
-        """Entité indisponible tant que la liaison Modbus n'est pas établie."""
-        return self._controller.modbus_ok
+        """Indisponible pendant l'hivernage (aucune I/O Modbus)."""
+        return not self._controller.hivernage
 
     @property
     def device_info(self):

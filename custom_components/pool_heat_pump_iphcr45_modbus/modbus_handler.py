@@ -1,7 +1,7 @@
 import logging
-import threading
 
-from pymodbus.client import ModbusTcpClient
+from modbus_connection import ModbusError, ModbusTcpParams
+from modbus_connection.tmodbus import ModbusConnection
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -12,116 +12,93 @@ HOLDING = "holding"
 
 
 class ModbusHandler:
-    """Connexion Modbus TCP persistante vers la passerelle de la PAC.
+    """Connexion Modbus TCP asynchrone vers la passerelle de la PAC.
 
-    Le client de pymodbus est synchrone : chaque méthode est bloquante et doit
-    être appelée depuis un thread executor (hass.async_add_executor_job), jamais
-    directement depuis la boucle d'événements. La connexion est gardée ouverte
-    entre les appels et un verrou sérialise l'accès, car toutes les plateformes
-    partagent la même instance.
+    `modbus_connection` (backend tmodbus) gère la liaison de bout en bout :
+    chaque lecture/écriture ouvre la connexion à la demande, la réouvre après
+    une coupure et lève une sous-classe de `ModbusError` en cas d'échec. Les
+    méthodes sont donc natives asyncio et s'appellent directement depuis la
+    boucle d'événements de Home Assistant, sans passer par un thread. La même
+    instance est partagée par toutes les plateformes de l'intégration.
     """
 
-    def __init__(
-        self,
-        host: str = "192.168.1.100",
-        port: int = 502,
-        unit_id: int = 1,
-        timeout: int = 3,
-    ) -> None:
+    def __init__(self, host="192.168.1.100", port=502, unit_id=1, timeout=3):
         self.host = host
         self.port = port
         self.unit_id = unit_id
-        self._client = ModbusTcpClient(host=self.host, port=self.port, timeout=timeout)
-        self._lock = threading.Lock()
+        # Aucune I/O dans le constructeur : la liaison s'ouvre au premier usage.
+        self._connection = ModbusConnection(
+            ModbusTcpParams(host=host, port=port), timeout=timeout
+        )
+        self._unit = self._connection.for_unit(unit_id)
+        self._unit.require_timeout(timeout)
 
-    def connect(self) -> bool:
-        """Ouvre la connexion persistante. Peut être appelé plusieurs fois."""
-        with self._lock:
-            return self._ensure_connected()
+    async def connect(self) -> bool:
+        """Ouvre la connexion. Peut être appelé plusieurs fois."""
+        try:
+            await self._connection.connect()
+            return True
+        except ModbusError as err:
+            _LOGGER.debug(
+                "Connexion Modbus impossible (%s:%s) : %s", self.host, self.port, err
+            )
+            return False
 
-    def close(self) -> None:
-        with self._lock:
-            self._client.close()
+    async def close(self) -> None:
+        await self._connection.close()
 
-    def _ensure_connected(self) -> bool:
-        if not self._client.connected:
-            return bool(self._client.connect())
-        return True
+    async def reconnect(self) -> None:
+        """Recycle la liaison : la prochaine requête se reconnectera d'elle-même."""
+        try:
+            await self._connection.disconnect()
+        except ModbusError as err:
+            # Déconnexion impossible : sans gravité, la prochaine requête
+            # rouvrira la liaison à la demande.
+            _LOGGER.debug("Reconnexion Modbus impossible : %s", err)
 
-    def read(
-        self, address: int, input_type: str = HOLDING, count: int = 1
-    ) -> int | None:
+    async def read(self, address, input_type=HOLDING, count=1):
         """Lit `count` valeurs et renvoie la première, ou None en cas d'échec."""
-        with self._lock:
-            try:
-                self._ensure_connected()
-                if input_type == COIL:
-                    result = self._client.read_coils(
-                        address=address, count=count, device_id=self.unit_id
-                    )
-                elif input_type == DISCRETE_INPUT:
-                    result = self._client.read_discrete_inputs(
-                        address=address, count=count, device_id=self.unit_id
-                    )
-                elif input_type == INPUT:
-                    result = self._client.read_input_registers(
-                        address=address, count=count, device_id=self.unit_id
-                    )
-                else:
-                    result = self._client.read_holding_registers(
-                        address=address, count=count, device_id=self.unit_id
-                    )
+        try:
+            if input_type == COIL:
+                values = await self._unit.read_coils(address, count)
+            elif input_type == DISCRETE_INPUT:
+                values = await self._unit.read_discrete_inputs(address, count)
+            elif input_type == INPUT:
+                values = await self._unit.read_input_registers(address, count)
+            else:
+                values = await self._unit.read_holding_registers(address, count)
 
-                if result.isError():
-                    _LOGGER.debug(
-                        "Modbus read error at %s (%s): %s",
-                        address,
-                        input_type,
-                        result,
-                    )
-                    return None
+            if input_type in (COIL, DISCRETE_INPUT):
+                return 1 if values[0] else 0
+            return values[0]
+        except ModbusError as err:
+            _LOGGER.debug(
+                "Erreur de lecture Modbus à %s (%s) : %s", address, input_type, err
+            )
+            return None
 
-                if input_type in (COIL, DISCRETE_INPUT):
-                    return 1 if result.bits[0] else 0
-                return result.registers[0]
-            except Exception as err:
-                _LOGGER.debug(
-                    "Modbus read exception at %s (%s): %s", address, input_type, err
-                )
-                return None
+    async def write(self, address, value, input_type=HOLDING):
+        try:
+            if input_type == COIL:
+                await self._unit.write_coil(address, bool(value))
+            else:
+                await self._unit.write_register(address, int(value))
+            return True
+        except ModbusError as err:
+            _LOGGER.debug(
+                "Erreur d'écriture Modbus à %s (%s) : %s", address, input_type, err
+            )
+            return False
 
-    def write(self, address: int, value: int, input_type: str = HOLDING) -> bool:
-        with self._lock:
-            try:
-                self._ensure_connected()
-                if input_type == COIL:
-                    result = self._client.write_coil(
-                        address=address, value=bool(value), device_id=self.unit_id
-                    )
-                else:
-                    result = self._client.write_register(
-                        address=address, value=int(value), device_id=self.unit_id
-                    )
-                return not result.isError()
-            except Exception as err:
-                _LOGGER.debug(
-                    "Modbus write exception at %s (%s): %s", address, input_type, err
-                )
-                return False
+    async def read_verified(
+        self, address, expected_value, input_type=HOLDING, tolerance=0
+    ):
+        """Relit une valeur après une écriture pour confirmer qu'elle est appliquée.
 
-    def read_verified(
-        self,
-        address: int,
-        expected_value: int,
-        input_type: str = HOLDING,
-        tolerance: int = 0,
-    ) -> bool:
-        """Relit un registre après une écriture pour confirmer qu'elle est appliquée.
-
-        Opération verrouillée séparée (pas imbriquée) : à appeler après write(),
-        avec un court délai si l'appareil a besoin de temps pour traiter.
+        À appeler après write(), avec un court délai si l'appareil a besoin de
+        temps pour traiter.
         """
-        result = self.read(address, input_type=input_type)
+        result = await self.read(address, input_type=input_type)
         if result is None:
             return False
         return abs(result - expected_value) <= tolerance

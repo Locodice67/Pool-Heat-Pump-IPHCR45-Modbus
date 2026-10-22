@@ -8,6 +8,6 @@
   "integration_type": "device",
   "iot_class": "local_polling",
   "issue_tracker": "https://github.com/Locodice67/Pool-Heat-Pump-IPHCR45-Modbus/issues",
-  "requirements": ["pymodbus>=3.9.2"],
-  "version": "0.2.11"
+  "requirements": ["modbus-connection[tmodbus]>=4.12.6"],
+  "version": "0.3.0"
 }

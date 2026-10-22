@@ -65,6 +65,9 @@
     "switch": {
       "marche_arret": {
         "name": "Aan/Uit"
+      },
+      "hivernage": {
+        "name": "Winterstalling"
       }
     },
     "number": {

@@ -65,6 +65,9 @@
     "switch": {
       "marche_arret": {
         "name": "Ein/Aus"
+      },
+      "hivernage": {
+        "name": "Überwinterung"
       }
     },
     "number": {

@@ -1,26 +1,17 @@
 import logging
 
 from homeassistant.components.sensor import SensorEntity, SensorStateClass
-from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.restore_state import RestoreEntity
 
 from .const import DOMAIN
-from .controller import PacController
 from .entity import PacDeviceMixin
-from .modbus_handler import ModbusHandler
 
 _LOGGER = logging.getLogger(__name__)
 
 
-async def async_setup_entry(
-    hass: HomeAssistant,
-    config_entry: ConfigEntry,
-    async_add_entities: AddEntitiesCallback,
-) -> None:
+async def async_setup_entry(hass, config_entry, async_add_entities):
     entry_data = hass.data[DOMAIN][config_entry.entry_id]
-    controller: PacController = entry_data["controller"]
+    controller = entry_data["controller"]
     handler = controller.handler  # même connexion que les autres plateformes
 
     sensors = [
@@ -29,20 +20,20 @@ async def async_setup_entry(
     ]
     async_add_entities(sensors)
 
-    async def update_sensors(now) -> None:
+    async def update_sensors(now):
         if controller.should_skip_poll():
             return
         any_success = False
         for sensor in sensors:
-            # read est bloquant (pymodbus synchrone) : on le sort de la boucle
-            # asyncio de HA pour ne pas la geler pendant un timeout Modbus.
-            ok = await hass.async_add_executor_job(sensor.update)
+            # Lecture asynchrone : l'attente rend la main à la boucle HA
+            # pendant le timeout Modbus éventuel.
+            ok = await sensor.update()
             if ok:
                 any_success = True
             sensor.async_write_ha_state()
         # Rafraîchit les entités des autres plateformes (switch, number, select,
         # climate, binary_sensor) sur le même cycle de poll.
-        for poll_listener in controller.poll_listeners:
+        for poll_listener in list(controller._poll_listeners):
             if await poll_listener():
                 any_success = True
         # Un seul appel par cycle : une lecture isolée en échec ne doit pas, à
@@ -61,13 +52,7 @@ class PacSensor(PacDeviceMixin, SensorEntity, RestoreEntity):
     # que HA nous appelle aussi.
     _attr_should_poll = False
 
-    def __init__(
-        self,
-        config: dict,
-        handler: ModbusHandler,
-        controller: PacController,
-        entry_id: str,
-    ) -> None:
+    def __init__(self, config, handler, controller, entry_id):
         self._config = config
         self._handler = handler
         self._controller = controller
@@ -94,7 +79,8 @@ class PacSensor(PacDeviceMixin, SensorEntity, RestoreEntity):
             "modbus_type": self._config["input_type"],
         }
 
-    async def async_added_to_hass(self) -> None:
+    async def async_added_to_hass(self):
+        self._controller.add_state_listener(self.async_write_ha_state)
         last_state = await self.async_get_last_state()
         if last_state and self._state is None:
             try:
@@ -102,13 +88,15 @@ class PacSensor(PacDeviceMixin, SensorEntity, RestoreEntity):
             except (ValueError, TypeError):
                 pass
 
-    def update(self) -> bool:
-        """Tourne dans un thread executor : jamais depuis la boucle asyncio.
+    async def update(self) -> bool:
+        """Lit la valeur du capteur, directement dans la boucle asyncio.
 
         Retourne True/False ; c'est update_sensors() qui décide, une fois par
         cycle, d'appeler controller.notify_modbus_success/failure.
         """
-        raw = self._handler.read(self._config["address"], self._config["input_type"])
+        raw = await self._handler.read(
+            self._config["address"], self._config["input_type"]
+        )
         if raw is None:
             return False
 
@@ -123,7 +111,7 @@ class PacSensor(PacDeviceMixin, SensorEntity, RestoreEntity):
             max_valid is not None and value > max_valid
         ):
             _LOGGER.debug(
-                "Out-of-range reading ignored for %s: %s",
+                "Lecture hors plage ignorée pour %s : %s",
                 self._config["unique_id"],
                 value,
             )

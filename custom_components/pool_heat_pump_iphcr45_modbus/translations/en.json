@@ -65,6 +65,9 @@
     "switch": {
       "marche_arret": {
         "name": "On/Off"
+      },
+      "hivernage": {
+        "name": "Wintering"
       }
     },
     "number": {

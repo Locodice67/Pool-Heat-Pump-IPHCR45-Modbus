@@ -65,6 +65,9 @@
     "switch": {
       "marche_arret": {
         "name": "Marche/Arrêt"
+      },
+      "hivernage": {
+        "name": "Hivernage"
       }
     },
     "number": {
