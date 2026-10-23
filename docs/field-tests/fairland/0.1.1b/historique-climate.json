@@ -1,0 +1,43 @@
+[
+  [
+    {
+      "entity_id": "climate.fairland_heat_pump",
+      "state": "cool",
+      "attributes": {
+        "current_temperature": 14.5,
+        "temperature": 12.0,
+        "hvac_action": "cooling",
+        "preset_mode": "silence",
+        "friendly_name": "Fairland heat pump"
+      },
+      "last_changed": "2026-10-23T18:43:00+00:00",
+      "last_updated": "2026-10-23T18:43:00+00:00"
+    },
+    {
+      "entity_id": "climate.fairland_heat_pump",
+      "state": "cool",
+      "attributes": {
+        "current_temperature": 14.5,
+        "temperature": 28.0,
+        "hvac_action": "cooling",
+        "preset_mode": "silence",
+        "friendly_name": "Fairland heat pump"
+      },
+      "last_changed": "2026-10-23T18:43:58.563236+00:00",
+      "last_updated": "2026-10-23T18:43:58.563236+00:00"
+    },
+    {
+      "entity_id": "climate.fairland_heat_pump",
+      "state": "heat",
+      "attributes": {
+        "current_temperature": 14.5,
+        "temperature": 28.0,
+        "hvac_action": "heating",
+        "preset_mode": "silence",
+        "friendly_name": "Fairland heat pump"
+      },
+      "last_changed": "2026-10-23T18:44:09.566451+00:00",
+      "last_updated": "2026-10-23T18:44:09.566451+00:00"
+    }
+  ]
+]

@@ -1,0 +1,1566 @@
+[
+  [
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "473",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:44:00+00:00",
+      "last_updated": "2026-10-23T18:44:00+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "453",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:44:02.219499+00:00",
+      "last_updated": "2026-10-23T18:44:02.219499+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "404",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:44:07.205342+00:00",
+      "last_updated": "2026-10-23T18:44:07.205342+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "44",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:44:12.204882+00:00",
+      "last_updated": "2026-10-23T18:44:12.204882+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "34",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:44:20.561237+00:00",
+      "last_updated": "2026-10-23T18:44:20.561237+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "23",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:44:36.569373+00:00",
+      "last_updated": "2026-10-23T18:44:36.569373+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "15",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:45:21.461377+00:00",
+      "last_updated": "2026-10-23T18:45:21.461377+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "14",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:46:21.585393+00:00",
+      "last_updated": "2026-10-23T18:46:21.585393+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "8",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:47:03.644419+00:00",
+      "last_updated": "2026-10-23T18:47:03.644419+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "29",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:47:10.592175+00:00",
+      "last_updated": "2026-10-23T18:47:10.592175+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "47",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:47:13.436885+00:00",
+      "last_updated": "2026-10-23T18:47:13.436885+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "50",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:47:15.636839+00:00",
+      "last_updated": "2026-10-23T18:47:15.636839+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "57",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:47:21.703957+00:00",
+      "last_updated": "2026-10-23T18:47:21.703957+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "64",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:47:35.687631+00:00",
+      "last_updated": "2026-10-23T18:47:35.687631+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "97",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:47:40.678976+00:00",
+      "last_updated": "2026-10-23T18:47:40.678976+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "138",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:47:47.770619+00:00",
+      "last_updated": "2026-10-23T18:47:47.770619+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "167",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:47:52.681919+00:00",
+      "last_updated": "2026-10-23T18:47:52.681919+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "214",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:47:57.733369+00:00",
+      "last_updated": "2026-10-23T18:47:57.733369+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "259",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:48:02.677734+00:00",
+      "last_updated": "2026-10-23T18:48:02.677734+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "310",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:48:07.759905+00:00",
+      "last_updated": "2026-10-23T18:48:07.759905+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "364",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:48:12.709100+00:00",
+      "last_updated": "2026-10-23T18:48:12.709100+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "417",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:48:17.711577+00:00",
+      "last_updated": "2026-10-23T18:48:17.711577+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "436",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:48:21.918772+00:00",
+      "last_updated": "2026-10-23T18:48:21.918772+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "437",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:48:22.707006+00:00",
+      "last_updated": "2026-10-23T18:48:22.707006+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "444",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:48:43.051531+00:00",
+      "last_updated": "2026-10-23T18:48:43.051531+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "433",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:48:47.030589+00:00",
+      "last_updated": "2026-10-23T18:48:47.030589+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "445",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:49:20.063053+00:00",
+      "last_updated": "2026-10-23T18:49:20.063053+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "457",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:49:22.041499+00:00",
+      "last_updated": "2026-10-23T18:49:22.041499+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "480",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:49:25.049273+00:00",
+      "last_updated": "2026-10-23T18:49:25.049273+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "533",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:49:30.065524+00:00",
+      "last_updated": "2026-10-23T18:49:30.065524+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "562",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:49:35.060910+00:00",
+      "last_updated": "2026-10-23T18:49:35.060910+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "586",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:49:40.066042+00:00",
+      "last_updated": "2026-10-23T18:49:40.066042+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "622",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:49:45.067245+00:00",
+      "last_updated": "2026-10-23T18:49:45.067245+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "653",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:49:50.084825+00:00",
+      "last_updated": "2026-10-23T18:49:50.084825+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "683",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:49:55.072650+00:00",
+      "last_updated": "2026-10-23T18:49:55.072650+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "716",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:00.096399+00:00",
+      "last_updated": "2026-10-23T18:50:00.096399+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "736",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:05.120506+00:00",
+      "last_updated": "2026-10-23T18:50:05.120506+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "749",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:10.083240+00:00",
+      "last_updated": "2026-10-23T18:50:10.083240+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "760",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:15.111652+00:00",
+      "last_updated": "2026-10-23T18:50:15.111652+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "780",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:20.104971+00:00",
+      "last_updated": "2026-10-23T18:50:20.104971+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "786",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:22.196777+00:00",
+      "last_updated": "2026-10-23T18:50:22.196777+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "795",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:25.131362+00:00",
+      "last_updated": "2026-10-23T18:50:25.131362+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "811",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:30.114142+00:00",
+      "last_updated": "2026-10-23T18:50:30.114142+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "832",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:35.121912+00:00",
+      "last_updated": "2026-10-23T18:50:35.121912+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "848",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:40.131433+00:00",
+      "last_updated": "2026-10-23T18:50:40.131433+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "857",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:45.122309+00:00",
+      "last_updated": "2026-10-23T18:50:45.122309+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "868",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:50:52.674537+00:00",
+      "last_updated": "2026-10-23T18:50:52.674537+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "876",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:51:22.356340+00:00",
+      "last_updated": "2026-10-23T18:51:22.356340+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "878",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:51:24.670382+00:00",
+      "last_updated": "2026-10-23T18:51:24.670382+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "889",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:52:03.685568+00:00",
+      "last_updated": "2026-10-23T18:52:03.685568+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "899",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:52:14.730797+00:00",
+      "last_updated": "2026-10-23T18:52:14.730797+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "895",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:52:22.493801+00:00",
+      "last_updated": "2026-10-23T18:52:22.493801+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "897",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:53:22.605914+00:00",
+      "last_updated": "2026-10-23T18:53:22.605914+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "889",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:05.819079+00:00",
+      "last_updated": "2026-10-23T18:54:05.819079+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "863",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:10.799423+00:00",
+      "last_updated": "2026-10-23T18:54:10.799423+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "830",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:15.794977+00:00",
+      "last_updated": "2026-10-23T18:54:15.794977+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "800",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:20.810801+00:00",
+      "last_updated": "2026-10-23T18:54:20.810801+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "789",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:22.725664+00:00",
+      "last_updated": "2026-10-23T18:54:22.725664+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "763",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:25.816684+00:00",
+      "last_updated": "2026-10-23T18:54:25.816684+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "633",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:30.840074+00:00",
+      "last_updated": "2026-10-23T18:54:30.840074+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "547",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:35.791710+00:00",
+      "last_updated": "2026-10-23T18:54:35.791710+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "484",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:40.867994+00:00",
+      "last_updated": "2026-10-23T18:54:40.867994+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "427",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:45.908293+00:00",
+      "last_updated": "2026-10-23T18:54:45.908293+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "368",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:50.836509+00:00",
+      "last_updated": "2026-10-23T18:54:50.836509+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "28",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:54:55.821889+00:00",
+      "last_updated": "2026-10-23T18:54:55.821889+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "17",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:55:11.310965+00:00",
+      "last_updated": "2026-10-23T18:55:11.310965+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "15",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:55:22.830868+00:00",
+      "last_updated": "2026-10-23T18:55:22.830868+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_power",
+      "state": "7",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "W",
+        "device_class": "power",
+        "friendly_name": "Prise PAC Piscine Puissance"
+      },
+      "last_changed": "2026-10-23T18:55:55.301977+00:00",
+      "last_updated": "2026-10-23T18:55:55.301977+00:00"
+    }
+  ],
+  [
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.12",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:44:00+00:00",
+      "last_updated": "2026-10-23T18:44:00+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.04",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:44:02.218048+00:00",
+      "last_updated": "2026-10-23T18:44:02.218048+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "1.84",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:44:07.203905+00:00",
+      "last_updated": "2026-10-23T18:44:07.203905+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.56",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:44:12.203887+00:00",
+      "last_updated": "2026-10-23T18:44:12.203887+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.53",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:44:21.326284+00:00",
+      "last_updated": "2026-10-23T18:44:21.326284+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.51",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:44:28.565403+00:00",
+      "last_updated": "2026-10-23T18:44:28.565403+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.49",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:45:21.461169+00:00",
+      "last_updated": "2026-10-23T18:45:21.461169+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.61",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:47:11.634938+00:00",
+      "last_updated": "2026-10-23T18:47:11.634938+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.62",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:47:13.436363+00:00",
+      "last_updated": "2026-10-23T18:47:13.436363+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.66",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:47:21.702419+00:00",
+      "last_updated": "2026-10-23T18:47:21.702419+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.73",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:47:40.677378+00:00",
+      "last_updated": "2026-10-23T18:47:40.677378+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.85",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:47:47.769088+00:00",
+      "last_updated": "2026-10-23T18:47:47.769088+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.94",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:47:52.680237+00:00",
+      "last_updated": "2026-10-23T18:47:52.680237+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "1.11",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:47:57.732007+00:00",
+      "last_updated": "2026-10-23T18:47:57.732007+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "1.28",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:48:02.675317+00:00",
+      "last_updated": "2026-10-23T18:48:02.675317+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "1.47",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:48:07.754846+00:00",
+      "last_updated": "2026-10-23T18:48:07.754846+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "1.69",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:48:12.708162+00:00",
+      "last_updated": "2026-10-23T18:48:12.708162+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "1.9",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:48:17.710263+00:00",
+      "last_updated": "2026-10-23T18:48:17.710263+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "1.97",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:48:21.918589+00:00",
+      "last_updated": "2026-10-23T18:48:21.918589+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "1.98",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:48:22.704742+00:00",
+      "last_updated": "2026-10-23T18:48:22.704742+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.03",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:48:43.427722+00:00",
+      "last_updated": "2026-10-23T18:48:43.427722+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "1.97",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:48:46.037022+00:00",
+      "last_updated": "2026-10-23T18:48:46.037022+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.04",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:49:21.070225+00:00",
+      "last_updated": "2026-10-23T18:49:21.070225+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.2",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:49:26.102637+00:00",
+      "last_updated": "2026-10-23T18:49:26.102637+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.39",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:49:31.153899+00:00",
+      "last_updated": "2026-10-23T18:49:31.153899+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.51",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:49:36.085858+00:00",
+      "last_updated": "2026-10-23T18:49:36.085858+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.62",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:49:41.134238+00:00",
+      "last_updated": "2026-10-23T18:49:41.134238+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.77",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:49:46.091722+00:00",
+      "last_updated": "2026-10-23T18:49:46.091722+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.9",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:49:51.151146+00:00",
+      "last_updated": "2026-10-23T18:49:51.151146+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.04",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:49:56.097053+00:00",
+      "last_updated": "2026-10-23T18:49:56.097053+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.16",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:01.118423+00:00",
+      "last_updated": "2026-10-23T18:50:01.118423+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.23",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:06.117012+00:00",
+      "last_updated": "2026-10-23T18:50:06.117012+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.28",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:11.107860+00:00",
+      "last_updated": "2026-10-23T18:50:11.107860+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.36",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:16.494052+00:00",
+      "last_updated": "2026-10-23T18:50:16.494052+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.41",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:21.460669+00:00",
+      "last_updated": "2026-10-23T18:50:21.460669+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.42",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:22.196563+00:00",
+      "last_updated": "2026-10-23T18:50:22.196563+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.48",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:26.463438+00:00",
+      "last_updated": "2026-10-23T18:50:26.463438+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.55",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:31.457852+00:00",
+      "last_updated": "2026-10-23T18:50:31.457852+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.63",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:36.465552+00:00",
+      "last_updated": "2026-10-23T18:50:36.465552+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.7",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:41.466913+00:00",
+      "last_updated": "2026-10-23T18:50:41.466913+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.72",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:46.530131+00:00",
+      "last_updated": "2026-10-23T18:50:46.530131+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.78",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:50:52.673445+00:00",
+      "last_updated": "2026-10-23T18:50:52.673445+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.82",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:51:22.356056+00:00",
+      "last_updated": "2026-10-23T18:51:22.356056+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.83",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:51:31.660851+00:00",
+      "last_updated": "2026-10-23T18:51:31.660851+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.88",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:52:03.677380+00:00",
+      "last_updated": "2026-10-23T18:52:03.677380+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.9",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:52:22.492345+00:00",
+      "last_updated": "2026-10-23T18:52:22.492345+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.88",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:53:22.605717+00:00",
+      "last_updated": "2026-10-23T18:53:22.605717+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.93",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:02.795524+00:00",
+      "last_updated": "2026-10-23T18:54:02.795524+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.82",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:07.756822+00:00",
+      "last_updated": "2026-10-23T18:54:07.756822+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.7",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:12.885019+00:00",
+      "last_updated": "2026-10-23T18:54:12.885019+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.58",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:17.768360+00:00",
+      "last_updated": "2026-10-23T18:54:17.768360+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.44",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:22.725477+00:00",
+      "last_updated": "2026-10-23T18:54:22.725477+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "3.14",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:27.789186+00:00",
+      "last_updated": "2026-10-23T18:54:27.789186+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.59",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:32.856147+00:00",
+      "last_updated": "2026-10-23T18:54:32.856147+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.34",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:37.796471+00:00",
+      "last_updated": "2026-10-23T18:54:37.796471+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "2.08",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:42.827355+00:00",
+      "last_updated": "2026-10-23T18:54:42.827355+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "1.84",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:47.812451+00:00",
+      "last_updated": "2026-10-23T18:54:47.812451+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "1.61",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:52.841211+00:00",
+      "last_updated": "2026-10-23T18:54:52.841211+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.55",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:54:57.823961+00:00",
+      "last_updated": "2026-10-23T18:54:57.823961+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.53",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:55:22.830655+00:00",
+      "last_updated": "2026-10-23T18:55:22.830655+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0.52",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:56:22.958285+00:00",
+      "last_updated": "2026-10-23T18:56:22.958285+00:00"
+    },
+    {
+      "entity_id": "sensor.prise_pac_piscine_current",
+      "state": "0",
+      "attributes": {
+        "state_class": "measurement",
+        "unit_of_measurement": "A",
+        "device_class": "current",
+        "friendly_name": "Prise PAC Piscine Courant"
+      },
+      "last_changed": "2026-10-23T18:56:54.281403+00:00",
+      "last_updated": "2026-10-23T18:56:54.281403+00:00"
+    }
+  ]
+]

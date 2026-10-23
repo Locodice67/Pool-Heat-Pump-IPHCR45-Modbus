@@ -55,3 +55,19 @@ Deux versions testées le **2026-10-23** sur la même PAC, dans les mêmes condi
 - `0.1.0/rapport.md` et `0.1.0/diagnostic.json`
 - `0.1.1/rapport.md`, les deux journaux de campagne et les trois diagnostics
   (avant / +3 s / +30 s après dégivrage)
+
+## Deuxième campagne sur la 0.1.1 (essai A à E)
+
+Campagne menée le même soir pour identifier les entrées et sorties de la carte, puis
+vérifier le comportement PAC éteinte.
+
+| Point | Résultat |
+|---|---|
+| Entrée de débit DIN3 (`discrete` 4) | suit le contrôleur de débit, à 0 dans les 10 s suivant la coupure et de retour dès le rétablissement |
+| Sortie OUT2 (`discrete` 8) | ne suit ni le compresseur ni le mode : reste à 1 dix secondes après la coupure, tombe à 90 s, revient au débit avant redémarrage — sortie pompe probable |
+| Sortie OUT6 (`discrete` 12) | ne s'allume qu'en froid : vanne 4 voies très probable |
+| Mode de travail | `holding` 0 porte la fonction (0 auto, 1 chauffage, 2 froid) ; `holding` 2, 3 et 4 sont les consignes de chaque fonction |
+| Courant | échelle 0,1 A cohérente si on la rapporte à la tension PFC ; l'écart apparent venait de la consommation de la PAC à l'arrêt et du point de mesure côté secteur |
+| Message de préréglage refusé | en français dans l'interface, en anglais par l'API REST (normal) |
+
+Détail dans `0.1.1b/rapport.md`.
