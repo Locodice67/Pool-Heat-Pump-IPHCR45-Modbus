@@ -82,4 +82,4 @@ Mode `heat`, consigne **28 °C**, préréglage `silence`, compresseur arrêté p
 
 ## Fichiers joints
 
-`diag-A1-filtration-on.json`, `diag-A2-off-10s.json`, `diag-A3-off-90s.json`, `diag-A4-on-10s.json`, `diag-A4b-on-30s.json`, `diag-B1-heat.json`, `diag-B2-cool.json`, `diag-D1-apres-turbo-ui.json`, plus `releves.jsonl` et `essai-C-courant.jsonl`.
+`diag-A1-filtration-on.json`, `diag-A2-off-10s.json`, `diag-A3-off-90s.json`, `diag-A4-on-10s.json`, `diag-A4b-on-30s.json`, `diag-B1-heat.json`, `diag-B2-cool.json`, `diag-D1-apres-turbo-ui.json`, plus `releves.json` (tableau des huit relevés) et `essai-C-courant.json` (tableau des cent vingt échantillons de l'essai C).
