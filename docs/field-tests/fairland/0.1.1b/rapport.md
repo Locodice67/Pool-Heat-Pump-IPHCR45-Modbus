@@ -30,7 +30,7 @@ Bits qui changent :
 - **discrete 8 (OUT2)** ne tombe pas à 10 s mais à 90 s, et remonte en moins de 10 s au retour du débit **alors que le compresseur était encore à 0 %**. Il suit la présence de débit avec du retard, ni le compresseur ni le mode.
 - **discrete 17** est à 1 seulement quand la machine tourne (A1, B1, B2) et tombe à l'arrêt.
 - **discrete 16 et 51** apparaissent uniquement à l'arrêt sur défaut (A2, A3) et disparaissent au retour du débit.
-- Le code **E3** était déjà actif à **10 s** lors de cette coupure. Lors de la campagne précédente il était apparu à 45 s : la différence est que le compresseur tournait ici à 58 % et là à 100 %.
+- Le code **E3** était déjà actif à **10 s** lors de cette coupure. La veille il avait été relevé à 45 s, mais ce délai venait au moins en partie du rafraîchissement des entités Home Assistant, qui n'ont lieu que toutes les 30 s, alors qu'un diagnostic relit la carte immédiatement. `releves.json` le montre : à A2 l'entité compresseur affichait encore 58 % alors que la carte lisait déjà 0.
 
 ## Essai B — OUT2 en chauffage et en froid
 
@@ -41,10 +41,12 @@ Bits qui changent :
 
 - **discrete 8 ne change pas** entre le chauffage et le froid : ce n'est donc pas la vanne 4 voies.
 - **discrete 12 apparaît uniquement en froid** et disparaît au retour en chauffage : c'est la seule sortie entre 7 et 15 qui bascule avec l'inversion de cycle.
-- `holding` 0 vaut **1 en chauffage et 2 en froid**. Cela ne correspond pas au mapping annoncé (registre 2 en auto, 3 en chauffage, 4 en refroidissement) : ici c'est le registre 0 qui porte le mode, avec 1 = chaud et 2 = froid.
+- `holding` 0 vaut **1 en chauffage et 2 en froid** : c'est le registre de fonction (0 auto, 1 chauffage, 2 froid), et les registres 2, 3 et 4 portent les consignes de chaque fonction. B2 le confirme avec `holding` 4 = 84, soit 12 °C.
 - Consigne de froid d'origine avant modification : **20 °C**. Le minimum accepté par l'entité en froid est bien **12 °C** (en chaud : 18 à 40).
 - Compresseur redémarré **3 min 30** après le passage en froid (sensor à 58 %, `input.0` à 76 % au relevé B2).
-- Après l'essai, consigne de chauffe d'origine **28 °C** rétablie et retour en `heat` accepté.
+- Après l'essai, retour en `heat` accepté, mais **la consigne de froid est restée à 28 °C** : voir la note ci-dessous, la cause est l'ordre des appels du test.
+
+**Note sur la consigne de froid.** L'historique de l'entité `climate` (fichier `historique-climate.json`) donne la chronologie exacte : à 20:43:00 le mode est `cool` avec 12,0 °C, à **20:43:58 la consigne passe à 28,0 °C alors que le mode est encore `cool`**, et à 20:44:09 le mode repasse à `heat`. L'appel `set_temperature 28` a donc été envoyé **avant** le retour en `heat`, et il a écrit la consigne du froid. C'est une erreur d'ordre du test, pas un défaut de l'intégration.
 
 ## Essai C — courant
 
@@ -61,7 +63,12 @@ Puissance et courant relevés sur le compteur de la prise de la PAC (`sensor.pri
 | régime | 72 | 14 | 1,4 A | 653 W / 2,90 A | 0,21 |
 | **pleine charge** | **84** | **20** | **2,0 A** | **895 W / 3,90 A** | **0,195** |
 
-L'écart entre la valeur de l'intégration et la mesure réelle est d'un facteur **2 à 2,5**, et il n'est pas constant : il diminue quand la vitesse augmente. L'hypothèse d'un facteur 10 ne se vérifie pas sur ces relevés.
+L'écart entre la valeur de l'intégration et la mesure de la prise ne vient pas d'une mauvaise échelle. En rapportant le registre à la tension PFC (environ 380 V) et en retirant la consommation de la PAC à l'arrêt (97 à 140 W), les deux lectures se rejoignent à 0,1 A près :
+
+- 50 Hz, `input.11` = 8 → 0,8 A sous 380 V ≈ **304 W**, contre 433–444 W mesurés moins 130 W à l'arrêt ≈ **303 à 314 W**
+- 84 Hz, `input.11` = 20 → 2,0 A sous 380 V ≈ **760 W**, contre 895 W mesurés moins 130 W ≈ **765 W**
+
+Le registre mesure donc le courant du compresseur côté onduleur, sous la tension PFC, alors que la prise mesure toute la PAC côté secteur. L'échelle 0,1 A par unité est cohérente ; le « facteur » qui semblait varier n'était que la différence des points de mesure.
 
 ## Essai D — vérifications rapides
 
@@ -82,4 +89,4 @@ Mode `heat`, consigne **28 °C**, préréglage `silence`, compresseur arrêté p
 
 ## Fichiers joints
 
-`diag-A1-filtration-on.json`, `diag-A2-off-10s.json`, `diag-A3-off-90s.json`, `diag-A4-on-10s.json`, `diag-A4b-on-30s.json`, `diag-B1-heat.json`, `diag-B2-cool.json`, `diag-D1-apres-turbo-ui.json`, plus `releves.json` (tableau des huit relevés) et `essai-C-courant.json` (tableau des cent vingt échantillons de l'essai C).
+`diag-A1-filtration-on.json`, `diag-A2-off-10s.json`, `diag-A3-off-90s.json`, `diag-A4-on-10s.json`, `diag-A4b-on-30s.json`, `diag-B1-heat.json`, `diag-B2-cool.json`, `diag-D1-apres-turbo-ui.json`, plus `releves.json` (tableau des huit relevés), `essai-C-courant.json` (tableau des cent vingt échantillons de l'essai C), `historique-climate.json` (entité climate de 20:43 à 20:48) et `historique-prise.json` (puissance et courant de la prise de la PAC de 20:44 à 20:57).
