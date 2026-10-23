@@ -11,6 +11,8 @@ Matériel et environnement :
 - PAC hivernée : eau entre 13,0 et 15,0 °C, air entre 8,0 et 18,0 °C
 - les tests sont faits sur l'eau du bassin, filtration pilotée à distance
 
+Voir **[SYNTHESE.md](SYNTHESE.md)** pour le tableau « ce qui marche / ce qui ne marche pas » version par version.
+
 Un dossier par version testée. Chaque dossier contient le rapport de la campagne et
 les diagnostics de l'entrée de configuration (bloc `data` seul : les blocs
 `home_assistant` et `custom_components` ont été retirés, ils ne contiennent rien
