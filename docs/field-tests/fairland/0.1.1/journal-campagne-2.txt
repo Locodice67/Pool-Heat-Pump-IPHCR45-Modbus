@@ -1,0 +1,90 @@
+=== 0.1.1 — points 1, 2, 4 et 5 du guide ===
+debut: 2026-10-23 11:48:43
+
+--- point 4 : 16 entites desactivees sur 30 ---
+  activation binary_sensor.fairland_heat_pump_contact_de_commande_a_distance OK
+  activation number.fairland_heat_pump_duree_de_mesure_de_la_pompe          OK
+  activation number.fairland_heat_pump_duree_de_fonctionnement_avant_degivrage OK
+  activation number.fairland_heat_pump_temperature_de_debut_de_degivrage    OK
+  activation number.fairland_heat_pump_duree_maximale_de_degivrage          OK
+  activation number.fairland_heat_pump_temperature_de_fin_de_degivrage      OK
+  activation sensor.fairland_heat_pump_temperature_de_refoulement           OK
+  activation sensor.fairland_heat_pump_temperature_de_l_evaporateur         OK
+  activation sensor.fairland_heat_pump_temperature_d_aspiration             OK
+  activation sensor.fairland_heat_pump_temperature_de_l_echangeur           OK
+  activation sensor.fairland_heat_pump_temperature_du_dissipateur           OK
+  activation sensor.fairland_heat_pump_frequence_du_compresseur             OK
+  activation sensor.fairland_heat_pump_frequence_cible_du_compresseur       OK
+  activation sensor.fairland_heat_pump_tension_pfc                          OK
+  activation sensor.fairland_heat_pump_ouverture_du_detendeur               OK
+  activation sensor.fairland_heat_pump_vitesse_du_ventilateur               OK
+
+attente 75 s apres activation...
+
+--- valeurs des entites precedemment vides ---
+  absence_de_debit_d_eau                               on                  
+  compresseur                                          off                 
+  contact_de_commande_a_distance                       on                  
+  debit_d_eau                                          unavailable         
+  defaut                                               on                  
+  degivrage                                            off                 
+  lancer_un_degivrage                                  2026-10-23T09:46:4  
+  fairland_heat_pump                                   heat                
+  duree_de_fonctionnement_avant_degivrage              35                  min
+  duree_de_mesure_de_la_pompe                          60                  min
+  duree_maximale_de_degivrage                          12                  min
+  temperature_de_debut_de_degivrage                    -7.0                °C
+  temperature_de_fin_de_degivrage                      13.0                °C
+  mode_de_la_pompe                                     continuous          
+  courant_du_compresseur                               0.0                 A
+  defaut                                               e3                  
+  frequence_cible_du_compresseur                       0                   Hz
+  frequence_du_compresseur                             0                   Hz
+  ouverture_du_detendeur                               480                 
+  temperature_ambiante                                 14.5                °C
+  temperature_d_aspiration                             13.0                °C
+  temperature_d_entree_d_eau                           14.5                °C
+  temperature_de_l_echangeur                           15.0                °C
+  temperature_de_l_evaporateur                         10.5                °C
+  temperature_de_refoulement                           17.5                °C
+  temperature_de_sortie_d_eau                          14.5                °C
+  temperature_du_dissipateur                           19.5                °C
+  tension_pfc                                          317                 V
+  vitesse_du_compresseur                               0                   %
+  vitesse_du_ventilateur                               0                   rpm
+
+--- point 2 : Smart compresseur arrete ---
+  filtration off -> 200
+  PAC off -> ('200', '')
+  attente arret compresseur t+15s : 0%
+  smart compresseur arrete -> HTTP 500 relu=silence REFUSE
+     message: {"message":"The heat pump did not switch to this preset. Some models do not have every working mode, and some accept Smart only while the compressor runs"}
+
+--- point 2 (suite) : Smart compresseur en marche ---
+  filtration on -> 200
+  PAC heat -> ('200', '')
+  attente demarrage t+15s : 0%
+  attente demarrage t+30s : 0%
+  attente demarrage t+45s : 0%
+  attente demarrage t+60s : 0%
+  attente demarrage t+75s : 0%
+  attente demarrage t+90s : 0%
+  attente demarrage t+105s : 0%
+  attente demarrage t+120s : 0%
+  attente demarrage t+135s : 52%
+  smart compresseur en marche -> HTTP 200 relu=smart ACCEPTE
+
+--- point 1 : Turbo puis Super silence ---
+  turbo          HTTP 500 relu=silence REFUSE
+     message: {"message":"The heat pump did not switch to this preset. Some models do not have every working mode, and some accept Smart only while the compressor runs"}
+  super_silence  HTTP 500 relu=silence REFUSE
+     message: {"message":"The heat pump did not switch to this preset. Some models do not have every working mode, and some accept Smart only while the compressor runs"}
+
+--- point 5 : degivrage puis diagnostic immediat ---
+  press -> HTTP 200 
+  avant      codes=[] coils_a_1=[0, 16, 32] discrete_a_1=[0, 2, 3, 4, 5, 6, 8, 17]
+  apres 3 s  codes=[] coils_a_1=[0, 16, 32] discrete_a_1=[0, 2, 3, 4, 5, 6, 8, 17]
+  apres 30 s codes=[] coils_a_1=[0, 16, 32] discrete_a_1=[0, 2, 3, 4, 5, 6, 8, 17]
+
+--- etat final ---
+  mode=heat consigne=28.0 preset=silence compresseur=75% | pompe=on

@@ -1,0 +1,57 @@
+=== integration Fairland 0.1.1 — batterie de tests ===
+debut: 2026-10-23 11:42:06
+
+--- 0. etat de depart ---
+  [depart] mode=off consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 13.5->15.5 air 18.0 | absence_debit=off defaut=none degivrage=off | pompe=off
+
+--- 1. filtration en marche ---
+  switch.turn_on pompe -> 200
+  [pompe en marche] mode=off consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 13.5->15.5 air 18.0 | absence_debit=off defaut=none degivrage=off | pompe=on
+
+--- 2. PAC en chauffage, consigne 28 ---
+  set_hvac_mode heat -> ('200', '')
+  [heat] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->15.5 air 18.0 | absence_debit=off defaut=none degivrage=off | pompe=on
+  set_temperature 28 -> ('200', '')
+
+--- 3. attente du compresseur (jusqu'a 300 s) ---
+  [t+15s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->15.0 air 18.0 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [t+30s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->15.0 air 18.0 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [t+45s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 15.0->15.0 air 18.0 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [t+60s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 15.0->15.0 air 18.0 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [t+75s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 15.0->15.0 air 17.5 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [t+90s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 15.0->15.0 air 17.5 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [t+105s] mode=heat consigne=28.0 preset=silence action=None | compresseur=28% 0.3A | eau 14.5->14.5 air 16.0 | absence_debit=off defaut=none degivrage=off | pompe=on
+  compresseur en marche, on continue
+
+--- 4. modes et consignes ---
+  [mode cool (envoi 200)] mode=cool consigne=20.0 preset=silence action=None | compresseur=42% 0.3A | eau 14.5->14.5 air 15.5 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [consigne 20 en cool (envoi 200)] mode=cool consigne=20.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.5 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [mode heat_cool (envoi 200)] mode=heat_cool consigne=26.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.0 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [consigne 26 en heat_cool (envoi 200)] mode=heat_cool consigne=26.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.0 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [mode heat (envoi 200)] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.0 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [consigne 28 en heat (envoi 200)] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.0 | absence_debit=off defaut=none degivrage=off | pompe=on
+
+--- 5. preréglages (15 s chacun) ---
+  turbo          HTTP 500 -> relu=silence REFUSE
+     message: {"message":"The heat pump did not switch to this preset. Some models do not have every working mode, and some accept Smart only while the compressor runs"}
+  smart          HTTP 200 -> relu=smart ACCEPTE
+  super_silence  HTTP 500 -> relu=silence REFUSE
+     message: {"message":"The heat pump did not switch to this preset. Some models do not have every working mode, and some accept Smart only while the compressor runs"}
+  silence        HTTP 200 -> relu=silence ACCEPTE
+
+--- 6. bouton degivrage ---
+  press -> HTTP 200 
+  [degivrage t+15s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.5 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [degivrage t+30s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.5 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [degivrage t+45s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.5 | absence_debit=off defaut=none degivrage=off | pompe=on
+  [degivrage t+60s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.5 | absence_debit=off defaut=none degivrage=off | pompe=on
+
+--- 7. defaut E3 : coupure de la filtration ---
+  switch.turn_off pompe -> 200
+  [E3 t+15s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.5 | absence_debit=off defaut=none degivrage=off | pompe=off
+  [E3 t+30s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.5 | absence_debit=off defaut=none degivrage=off | pompe=off
+  [E3 t+45s] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.0 | absence_debit=on defaut=e3 degivrage=off | pompe=off
+  defaut detecte
+
+--- 8. etat final ---
+  [final] mode=heat consigne=28.0 preset=silence action=None | compresseur=0% 0.0A | eau 14.5->14.5 air 15.0 | absence_debit=on defaut=e3 degivrage=off | pompe=off
