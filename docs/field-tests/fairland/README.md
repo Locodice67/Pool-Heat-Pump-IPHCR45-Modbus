@@ -24,3 +24,4 @@ d'utile au diagnostic et listent l'installation complète).
 |---|---|---|
 | 0.1.0 | 2026-10-23 | modes, consignes et défaut E3 OK ; préréglages refusés silencieusement, débit d'eau inversé, 12 entités vides |
 | 0.1.1 | 2026-10-23 | les cinq points du guide sont traités : erreur explicite sur préréglage refusé, absence de débit cohérente, entités désactivées renseignées |
+| 0.1.1b | 2026-10-23 | 2ᵉ campagne sur la 0.1.1 : essais A à D (contrôleur de débit, OUT2, courant, interface) → [dossier](0.1.1b/rapport.md) |
