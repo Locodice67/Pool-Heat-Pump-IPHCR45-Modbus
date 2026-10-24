@@ -1,0 +1,34 @@
+=== depart : PAC=off consigne=28.0 preset=silence filtration=on | holding 3=116 holding 4=116 ===
+
+=== ETAPE 0 : remise de la consigne de froid a 20 C ===
+  cool -> 200
+  temperature 20 -> 200
+  retour en heat -> 200
+  verif : holding 4=100 (attendu 100) | holding 3=116 (attendu 116)
+{"etiquette": "S0-consignes-remises", "heure": "10:33:52", "mode": "heat", "consigne": 28.0, "preset": "silence", "compresseur_pct": 0, "compresseur_entite": "0", "filtration": "on", "puissance_prise_W": "8", "discrete_a_1": [0, 2, 3, 4, 5, 6, 8], "coil_a_1": [0, 16, 32], "input_10_Hz": 0, "input_11_courant": 0, "input_2_eau": 320, "holding_0_fonction": 1, "holding_2_auto": 112, "holding_3_chaud": 116, "holding_4_froid": 100, "codes": []}
+
+=== ETAPE 1 : PAC eteinte, filtration en marche ===
+  climate.turn_off -> 200
+  attente arret compresseur t+15s : input 0 = 0
+{"etiquette": "E1-PAC-off-filtration-on", "heure": "10:34:09", "mode": "off", "consigne": 28.0, "preset": "silence", "compresseur_pct": 0, "compresseur_entite": "0", "filtration": "on", "puissance_prise_W": "8", "discrete_a_1": [2, 3, 4, 5, 6, 8], "coil_a_1": [], "input_10_Hz": 0, "input_11_courant": 0, "input_2_eau": 320, "holding_0_fonction": 1, "holding_2_auto": 112, "holding_3_chaud": 116, "holding_4_froid": 100, "codes": []}
+
+=== ETAPE 2 : coupure de la filtration ===
+  filtration off -> 200 a 10:34:09
+{"etiquette": "E2-filtration-coupee-20s", "heure": "10:34:31", "mode": "off", "consigne": 28.0, "preset": "silence", "compresseur_pct": 0, "compresseur_entite": "0", "filtration": "off", "puissance_prise_W": "8", "discrete_a_1": [2, 3, 5, 6, 16, 51], "coil_a_1": [], "input_10_Hz": 0, "input_11_courant": 0, "input_2_eau": 319, "holding_0_fonction": 1, "holding_2_auto": 112, "holding_3_chaud": 116, "holding_4_froid": 100, "codes": ["E3"]}
+{"etiquette": "E3-filtration-coupee-90s", "heure": "10:35:42", "mode": "off", "consigne": 28.0, "preset": "silence", "compresseur_pct": 0, "compresseur_entite": "0", "filtration": "off", "puissance_prise_W": "7", "discrete_a_1": [2, 3, 5, 6, 16, 51], "coil_a_1": [], "input_10_Hz": 0, "input_11_courant": 0, "input_2_eau": 320, "holding_0_fonction": 1, "holding_2_auto": 112, "holding_3_chaud": 116, "holding_4_froid": 100, "codes": ["E3"]}
+
+=== ETAPE 3 : retour de la filtration ===
+  filtration on -> 200 a 10:35:42
+{"etiquette": "E4-retour-debit-20s", "heure": "10:36:03", "mode": "off", "consigne": 28.0, "preset": "silence", "compresseur_pct": 0, "compresseur_entite": "0", "filtration": "on", "puissance_prise_W": "7", "discrete_a_1": [2, 3, 4, 5, 6], "coil_a_1": [], "input_10_Hz": 0, "input_11_courant": 0, "input_2_eau": 321, "holding_0_fonction": 1, "holding_2_auto": 112, "holding_3_chaud": 116, "holding_4_froid": 100, "codes": []}
+
+=== ETAPE 4 : remise en etat ===
+  PAC -> off
+  climate.turn_off -> 200
+final : PAC=off filtration=on | holding 3=116 holding 4=100
+
+=== SYNTHESE : evolution de discrete 4 (DIN3) ===
+  S0-consignes-remises         filtration=on   discrete_4=True discrete_a_1=[0, 2, 3, 4, 5, 6, 8] codes=[]
+  E1-PAC-off-filtration-on     filtration=on   discrete_4=True discrete_a_1=[2, 3, 4, 5, 6, 8] codes=[]
+  E2-filtration-coupee-20s     filtration=off  discrete_4=False discrete_a_1=[2, 3, 5, 6, 16, 51] codes=['E3']
+  E3-filtration-coupee-90s     filtration=off  discrete_4=False discrete_a_1=[2, 3, 5, 6, 16, 51] codes=['E3']
+  E4-retour-debit-20s          filtration=on   discrete_4=True discrete_a_1=[2, 3, 4, 5, 6] codes=[]

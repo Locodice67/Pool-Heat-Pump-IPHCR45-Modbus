@@ -90,3 +90,7 @@ Mode `heat`, consigne **28 °C**, préréglage `silence`, compresseur arrêté p
 ## Fichiers joints
 
 `diag-A1-filtration-on.json`, `diag-A2-off-10s.json`, `diag-A3-off-90s.json`, `diag-A4-on-10s.json`, `diag-A4b-on-30s.json`, `diag-B1-heat.json`, `diag-B2-cool.json`, `diag-D1-apres-turbo-ui.json`, plus `releves.json` (tableau des huit relevés), `essai-C-courant.json` (tableau des cent vingt échantillons de l'essai C), `historique-climate.json` (entité climate de 20:43 à 20:48) et `historique-prise.json` (puissance et courant de la prise de la PAC de 20:44 à 20:57).
+
+## Essai E (24 octobre 2026)
+
+Réalisé le lendemain, PAC éteinte : DIN3 suit le débit même hors tension, un capteur « débit d'eau » est donc possible. Voir [essai-E/README.md](essai-E/README.md).
